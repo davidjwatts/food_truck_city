@@ -1,0 +1,7 @@
+    <a href="#" class='list-group-item' ng-click="map.markersEvents.click(marker, 'click', marker)">
+      <div ng-repeat='truck in marker.trucks | filter:formData.query'>
+          <h4>-{{truck.name}}</h4>
+          <p><strong>Food:</strong> {{truck.food}}</p>
+          <p><strong>Hours:</strong> {{truck.hours}}</p>
+      </div>
+    </a>

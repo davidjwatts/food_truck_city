@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require angular.min.js
+//= require angular
+//= require lodash.min.js
+//= require angular-simple-logger.js
+//= require angular-google-maps.js
 //= require_tree .

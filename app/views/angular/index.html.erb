@@ -1,0 +1,70 @@
+<%= content_for(:angular_app) do %>
+  ng-app="FoodTruckApp"
+  ng-controller="mapCtrl"
+<% end %>
+
+<div class="container">
+      <h1>San Francisco Food Trucks</h1>
+
+      <div class='row'>
+        <div class='col-xs-8'>
+          <div id="search-bar"><h3>Find Food Trucks Near You!</h3>
+            <script id="searchbox.tpl.html" type="text/ng-template">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Enter a an address or location, e.g. 'Embarcadero' ...">
+              </div>
+            </script>
+          </div>
+
+          <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map" pan="map.pan">
+
+              <ui-gmap-search-box template='map.searchbox.template' events='map.searchbox.events' parentdiv="'search-bar'">
+
+              </ui-gmap-search-box>
+
+              <ui-gmap-window show='map.window.show' coords="map.window.model" options='map.window.options' closeClick='map.window.closeClick()' templateUrl="map.window.templateUrl" templateParameter="map.window.model">
+              </ui-gmap-window>
+
+              <ui-gmap-markers models="map.markers" idKey="'id'" coords="'self'" doCluster="true" clusterOptions='map.clusterOptions' events="map.markersEvents" options="map.options">
+              </ui-gmap-markers>
+
+              <ui-gmap-marker idKey='map.searchMarker.id' coords='map.searchMarker.coords' options='map.searchMarker.options'>
+              </ui-gmap-marker>
+
+          </ui-gmap-google-map>
+        </div>
+
+
+        <div class='col-xs-4'>
+          <h3>Search Trucks:</h3>
+          <form name='queryForm' class="input-group">
+
+              <input type='text' name="query" ng-model="formData.query" required ng-minlength="1" class='form-control' placeholder="Search by name or food.."></p>
+
+          </form>
+
+
+
+          <div ng-if="hasSearched()">
+              <h2>10 Closest Food Truck Locations:</h2>
+              <weak><a href="#" ng-click='removeSearchMarker()'>Remove my location</a></weak>
+
+              <div class='list-group'>
+                <div ng-repeat='marker in map.markers | filter:formData.query | distanceFilter:map.searchMarker.coords | limitTo: 10'>
+                  <search-results></search-results>
+                </div>
+              </div>
+          </div>
+
+
+          <div ng-if="!hasSearched()">
+              <div class='list-group' ng-show="queryForm.query.$valid">
+                <a href="#" ng-repeat='marker in map.markers | filter:formData.query'>
+                  <search-results></search-results>
+                </a>
+              </div>
+          </div>
+
+        </div>
+      </div>
+  </div>
