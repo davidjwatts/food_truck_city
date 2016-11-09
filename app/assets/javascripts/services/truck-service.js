@@ -1,4 +1,8 @@
-foodTruckMap.factory("markerService", ['$window', '_', '$http', '$q', function($window, _, $http, $q){
+foodTruckMap.factory("markerService", ['_', '$http', '$q', function(_, $http, $q){
+
+  // ----------------------------------------
+  // Private
+  // ----------------------------------------
 
   var _markers = [];
 
@@ -77,7 +81,9 @@ foodTruckMap.factory("markerService", ['$window', '_', '$http', '$q', function($
     };
   };
 
-  //public
+  // ----------------------------------------
+  // Private
+  // ----------------------------------------
 
   var obj = {};
 
