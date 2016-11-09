@@ -75,10 +75,10 @@ Future Features
 
 Problems Encountered
 
-  I'm not very familiar with the deployment process, so I had a handful of issues with the asset pipeline, leading me to use some janky hacks to get the Heroku deployment to work. These included:
+  I'm not very familiar with the deployment process, so I had a handful of issues with the asset pipeline, leading me to use some janky hacks to get the Heroku deployment to work. These issues included:
 
   * Using a CDN link to bootstrap in the main view template, instead of using the gem or a hard copy in the vendor assets folder.
 
   * Including both a hard copy of AngularJS in the vendor assets folder and using the Angular gem for rails.
 
-  Another issue I couldn't figure out in time is the "Mixed Content" warnings the Heroku deployment sends in the console upon page load. I couldn't find the non-SSL links anywhere in the assets being used.
+  * Another issue I couldn't figure out in time is the "Mixed Content" warnings the Heroku deployment sends in the console upon page load. I couldn't find the non-SSL links anywhere in the assets being used.
