@@ -51,6 +51,12 @@ Features I wanted to implement:
 
   -Further processing the descriptin text to make it prettier. Remove business words from truck name such as "LLC" or "Corporatino", formatting da
 
+Problems I encountered:
+  -in deployment weird stuff, then couldn't assets to work, so started new rails app and heroku deployment entirely
+  -also have bootstrap loading from cdn in template rather than asset pipeline
+  -also have both copy of angular in vendor assets along with angular gem
+  -
+
 * Processing the Data
 
   The data is processed in a service that can return an array of objects, which can then be used as the reference for the Google Maps markers directive and the window directive. In processing the JSON file retrieved from DataSF, several issues came up.
