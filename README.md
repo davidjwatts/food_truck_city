@@ -61,22 +61,24 @@ Technical Solutions
 
 Future Features
 
-  I was certainly pressed for time with this project, and much of the struggle was determining how to pair down app's features so I could finish it in time.
+  I was certainly pressed for time with this project, and much of the struggle was determining how to pair down the app's features so I could finish it in time.
 
   * To incorporate more of a back-end, I wanted to offer persisting user accounts that would feature a list of favorite trucks the user could add and refer to.
 
   * It would be nice to refine the location search more, which could be accomplished by limiting the closest trucks list to those within a certain radius, and the user could select the distance.
 
-  * Along the same line, filtering the trucks list by days/times open, and then having a currently open link to filter by the current time. Also, having general food genres as a list of clickable refinements.
+  * Along the same line, filtering the trucks list by days/times open, and then having a currently open link to filter by the current time. Also, I would like to add general food genres as a list of clickable search refinements.
 
-  * Since we're all in AZ, it wouldn't be very fun to have the user's location automatically set to the device's location on page load, but this makes a lot of sense for real users.
+  * Since we're all in AZ, it wouldn't be very fun to have the search location automatically set to the device's location on page load, but this makes a lot of sense for real users in SF.
 
-  * Further processing of the descriptions to make it look nicer. Removing the colons in favor commas for example, and removing business terms from vendor name such as "LLC" and "Corporation".
+  * I wanted to further process the descriptions to make them look nicer, for instance removing the colons in favor commas, and removing business terms from vendor name such as "LLC" and "Corporation".
 
 Problems Encountered
 
   I'm not very familiar with the deployment process, so I had a handful of issues with the asset pipeline, leading me to use some janky hacks to get the Heroku deployment to work. These included:
-    * Using a CDN link to bootstrap in the main view template, instead of using the gem or a hard copy in the vendor assets folder.
-    * Including both a hard copy of AngularJS in the vendor assets folder and using the Angular gem for rails.
+
+  * Using a CDN link to bootstrap in the main view template, instead of using the gem or a hard copy in the vendor assets folder.
+
+  * Including both a hard copy of AngularJS in the vendor assets folder and using the Angular gem for rails.
 
   Another issue I couldn't figure out in time is the "Mixed Content" warnings the Heroku deployment sends in the console upon page load. I couldn't find the non-SSL links anywhere in the assets being used.
