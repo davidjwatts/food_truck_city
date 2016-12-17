@@ -1,4 +1,4 @@
-# San Francisco Food Trucks
+# Food Truck City
 
 ## Introduction
 
@@ -6,7 +6,7 @@ This web application is intended to fulfill the requirements of the ClearVoice c
 
 ## Deployment
 
-The app has been deployed on Heroku and can be used here: [SF Food Trucks](https://desolate-anchorage-57478.herokuapp.com/)
+The app has been deployed on Heroku and can be used here: [Food Truck City](https://food-truck-city.herokuapp.com/)
 
 Please excuse a possible delay on first loading as the app may need to be loaded in the servers, since this is a free account, and they put the app to sleep after not being pinged for a certain number of hours.
 
