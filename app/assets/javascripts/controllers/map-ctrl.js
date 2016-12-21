@@ -65,10 +65,10 @@ foodTruckMap.controller("mapCtrl", ["markerService", "uiGmapGoogleMapApi", "$sco
 
   // Resets the location search to the center of SF and zooms out
   $scope.removeSearchMarker = function(){
-    $scope.map.searchMarker.coords = angular.copy(SFCOORDS);
+    delete $scope.map.searchMarker.coords
     $scope.map.zoom = 12;
-    $scope.map.center = angular.copy(SFCOORDS);
-    $scope.map.refresh($scope.map.center);
+    $scope.map.refresh(SFCOORDS);
+    $scope.map.searchMarker.selected = false;  
   };
 
 }]);

@@ -40,7 +40,6 @@ GEM
       tzinfo (~> 1.1)
     angular_rails_csrf (2.0.0)
       railties (>= 3, < 5.1)
-    angularjs-rails (1.5.8)
     arel (7.1.4)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -167,7 +166,6 @@ PLATFORMS
 
 DEPENDENCIES
   angular_rails_csrf
-  angularjs-rails
   better_errors
   binding_of_caller
   byebug
