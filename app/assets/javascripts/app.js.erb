@@ -1,4 +1,4 @@
-var foodTruckMap = angular.module("FoodTruckApp", ['uiGmapgoogle-maps']);
+var foodTruckMap = angular.module("FoodTruckApp", ['uiGmapgoogle-maps', 'restangular']);
 
 // Required configuration for GMap API
 
@@ -9,3 +9,14 @@ foodTruckMap.config(function(uiGmapGoogleMapApiProvider) {
 
     });
 });
+
+
+foodTruckMap.config( ['RestangularProvider', function(RestangularProvider) {
+
+    RestangularProvider.setBaseUrl('/api/v1');
+    RestangularProvider.setRequestSuffix('.json');
+    RestangularProvider.setDefaultHttpFields({
+        "content-type": "application/json"
+    });
+
+}]);

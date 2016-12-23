@@ -16,4 +16,5 @@
 //= require lodash.min.js
 //= require angular-simple-logger.js
 //= require angular-google-maps.js
+//= require restangular.js
 //= require_tree .

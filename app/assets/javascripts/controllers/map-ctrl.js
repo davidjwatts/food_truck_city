@@ -1,6 +1,6 @@
 var SFCOORDS = { latitude: 37.753972, longitude: -122.431297 };
 
-foodTruckMap.controller("mapCtrl", ["markerService", "uiGmapGoogleMapApi", "$scope", "_", "$window", function(markerService, uiGmapGoogleMapApi, $scope, _, $window){
+foodTruckMap.controller("mapCtrl", ["markerService", "reviewService", "uiGmapGoogleMapApi", "$scope", "_", "$window", "Restangular", function(markerService, reviewService, uiGmapGoogleMapApi, $scope, _, $window, Restangular){
 
   $scope.formData = {};
 
@@ -68,7 +68,13 @@ foodTruckMap.controller("mapCtrl", ["markerService", "uiGmapGoogleMapApi", "$sco
     delete $scope.map.searchMarker.coords
     $scope.map.zoom = 12;
     $scope.map.refresh(SFCOORDS);
-    $scope.map.searchMarker.selected = false;  
+    $scope.map.searchMarker.selected = false;
   };
+
+  reviewService.all().then(function(data){
+    $window.console.log("vv top vv");
+    console.log(data[0]);
+    $window.console.log("^^ bottom ^^");
+  });
 
 }]);
