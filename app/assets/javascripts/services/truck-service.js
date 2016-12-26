@@ -82,7 +82,7 @@ foodTruckMap.factory("markerService", ['_', '$http', '$q', function(_, $http, $q
   };
 
   // ----------------------------------------
-  // Private
+  // Public
   // ----------------------------------------
 
   var obj = {};

@@ -1,5 +1,7 @@
 var SFCOORDS = { latitude: 37.753972, longitude: -122.431297 };
-
+var dice;
+var rs;
+var scope;
 foodTruckMap.controller("mapCtrl", ["markerService", "reviewService", "uiGmapGoogleMapApi", "$scope", "_", "$window", "Restangular", function(markerService, reviewService, uiGmapGoogleMapApi, $scope, _, $window, Restangular){
 
   $scope.formData = {};
@@ -53,6 +55,11 @@ foodTruckMap.controller("mapCtrl", ["markerService", "reviewService", "uiGmapGoo
     }
   };
 
+  $scope.setFocus = function(truck){
+    $window.console.log(truck);
+    $window.console.log("setFocus firing");
+    $scope.focus_truck = truck;
+  }
   // Brings in the processed data from the markers service
   markerService.getMarkers().then(function(markers){
     $scope.map.markers = markers
@@ -65,16 +72,18 @@ foodTruckMap.controller("mapCtrl", ["markerService", "reviewService", "uiGmapGoo
 
   // Resets the location search to the center of SF and zooms out
   $scope.removeSearchMarker = function(){
+    $scope.map.window.show = false;
     delete $scope.map.searchMarker.coords
     $scope.map.zoom = 12;
     $scope.map.refresh(SFCOORDS);
     $scope.map.searchMarker.selected = false;
   };
 
-  reviewService.all().then(function(data){
-    $window.console.log("vv top vv");
-    console.log(data[0]);
-    $window.console.log("^^ bottom ^^");
-  });
+  // retrieves reviews and adds info to markers
+  $window.onload = function(){
+    reviewService.getReviews().then(function(data){
+    reviewService.addReviews($scope.map.markers);
+    });
+  };
 
 }]);
