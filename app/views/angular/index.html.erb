@@ -17,7 +17,7 @@
                 </script>
               </div>
 
-              <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map" pan="map.pan">
+              <ui-gmap-google-map id="map" center='map.center' zoom='map.zoom' control="map" pan="map.pan">
 
                   <ui-gmap-search-box template='map.searchbox.template' events='map.searchbox.events' parentdiv="'search-bar'">
 
@@ -37,6 +37,8 @@
 
             <div class='col-xs-12' ng-if='!!focus_truck'>
               <h1>Reviews for {{focus_truck.name}}</h1>
+              <a href='#reviews' ng-click='reviewForm()'><h4 ng-hide='review_form'>Write a review!</h4></a>
+              <div ng-if='review_form' review>write review form</div>
               <h4>-{{focus_truck.avg_rating}}/5 ({{focus_truck.num_reviews}} reviews)</h4>
               <div list-group>
                 <truck-review></truck-review>

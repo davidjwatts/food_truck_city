@@ -24,6 +24,7 @@ foodTruckMap.controller("mapCtrl", ["markerService", "reviewService", "uiGmapGoo
     markersEvents: {
       click: function(marker, eventName, model, arguments) {
         $scope.map.window.model = model;
+        $scope.map.window.model.setFocus = $scope.setFocus
         $scope.map.window.show = true;
       }
     },
@@ -55,6 +56,13 @@ foodTruckMap.controller("mapCtrl", ["markerService", "reviewService", "uiGmapGoo
     }
   };
 
+  $scope.review_form = false;
+  $scope.reviewForm = function(){
+    $scope.review_form = true;
+  }
+
+  dice = $scope;
+
   $scope.setFocus = function(truck){
     $window.console.log(truck);
     $window.console.log("setFocus firing");
@@ -62,7 +70,8 @@ foodTruckMap.controller("mapCtrl", ["markerService", "reviewService", "uiGmapGoo
   }
   // Brings in the processed data from the markers service
   markerService.getMarkers().then(function(markers){
-    $scope.map.markers = markers
+    $scope.map.markers = markers;
+    $scope.attachReviews();
   });
 
   // Returns a boolean for whether the location search is active or not
@@ -80,7 +89,7 @@ foodTruckMap.controller("mapCtrl", ["markerService", "reviewService", "uiGmapGoo
   };
 
   // retrieves reviews and adds info to markers
-  $window.onload = function(){
+  $scope.attachReviews = function(){
     reviewService.getReviews().then(function(data){
     reviewService.addReviews($scope.map.markers);
     });

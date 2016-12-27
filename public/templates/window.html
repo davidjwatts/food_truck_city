@@ -1,10 +1,10 @@
 <div>
-  <hr>
-    <div ng-repeat='truck in parameter.trucks'>
+    <div id ng-repeat='truck in parameter.trucks'>
+      <hr>
       <h4>{{truck.name}} | {{truck.avg_rating}}/5 ({{truck.num_reviews}} reviews)</h4>
       <p><strong>Food:</strong> {{truck.food}}</p>
       <p><strong>Hours:</strong> {{truck.hours}}</p>
-      <p><a ng-click="setFocus(truck)">Reviews</a></p>
-      <hr>
+      <p><a href="#reviews" ng-click="parameter.setFocus(truck)">Reviews</a></p>
     </div>
+    <hr id="reviews">
 </div>

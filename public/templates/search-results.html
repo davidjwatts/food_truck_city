@@ -1,8 +1,8 @@
-  <div href="#" class='list-group-item' ng-click="map.markersEvents.click(marker, 'click', marker)">
+  <div class='list-group-item'>
     <div ng-repeat='truck in marker.trucks | filter:formData.query'>
-        <h4>-{{truck.name}} | {{truck.avg_rating}}/5 ({{truck.num_reviews}} reviews)</h4>
+        <h4><a href="#map" ng-click="map.markersEvents.click(marker, 'click', marker)">-{{truck.name}} | {{truck.avg_rating}}/5 ({{truck.num_reviews}} reviews)</a></h4>
+        <p><a href='#reviews' ng-click="setFocus(truck)">Reviews</a></p>
         <p><strong>Food:</strong> {{truck.food}}</p>
         <p><strong>Hours:</strong> {{truck.hours}}</p>
-        <p><a ng-click="setFocus(truck)">Reviews</a></p>
     </div>
   </div>
